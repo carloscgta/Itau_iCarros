@@ -1,10 +1,7 @@
 #encoding UTF-8
 #Author: Carlos Almeida - carloscgta@gmail.com
 #Feature: List of scenarios
- #
-#1) Crie uma consulta que retorne uma lista com pelo menos 3 carros usados da mesma marca modelo,
- #os demais critérios da consulta são a sua escolha
- 
+
  
 @geralConsultaiCarros
 Feature: Consulta Carros
@@ -25,7 +22,6 @@ Feature: Consulta Carros
     	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 14 mil    | Até R$ 20 mil  		|São Paulo - SP  	| 
 
     	
-    	
   @validarModeloEValorAVista
   Scenario Outline: Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta
     Given acessar a pagina iCarros
@@ -39,7 +35,24 @@ Feature: Consulta Carros
     Examples: 
       | marca  			| modelo 		| anoMinimo  	|anoMaximo  | precoMin 				| precoMax  				|localidade 			 	| modeloResultadoListaCarro1		 			 													| valorAVistaCarro1			 	| modeloResultadoListaCarro2															| valorAVistaCarro2			|
     	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 14 mil    | Até R$ 20 mil  		|São Paulo - SP  	| Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut) 							| R$ 19.890,00 				 		| Chevrolet Astra Hatch Advantage 2.0 (Flex)						 	| R$ 19.900,00 					|
-    	
-    	
-    	
-    	
+ 
+   @lerListaDeResultadoValidarValorAVista
+  Scenario Outline: Ler a lista de carros criada na tabela anterior validando o valor a Vista
+    Given ir para a pagina iCarros
+    And realizar a escolha da Marca "<marca>"
+    And realizar a escolha do Modelo "<modelo>"
+    And realizar a escolha do ano Minimo  "<anoMinimo>" e do ano Maximo "<anoMaximo>"
+    And realizar a escolha do preco "<precoMin>" e do Preco Maximo "<precoMax>"
+    And definir a cidade "<localidade>"
+    When clicar no botao Buscar
+    Then aplicacao deve retornar a lista de resultado da busca com os seguintes dados "<modeloResultadoListaCarro1>" "<valorAVistaCarro1>" "<modeloResultadoListaCarro2>" "<valorAVistaCarro2>"
+    Examples: 
+      | marca  			| modelo 		| anoMinimo  	|anoMaximo  | precoMin 				| precoMax  				|localidade 			 	| modeloResultadoListaCarro1		 			 													| valorAVistaCarro1			 	| modeloResultadoListaCarro2															| valorAVistaCarro2			|
+    	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 14 mil    | Até R$ 20 mil  		|São Paulo - SP  	| Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut) 							| R$ 19.890,00 				 		| Chevrolet Astra Hatch Advantage 2.0 (Flex)						 	| R$ 19.900,00 					|
+      
+      
+      
+      
+      
+      
+      

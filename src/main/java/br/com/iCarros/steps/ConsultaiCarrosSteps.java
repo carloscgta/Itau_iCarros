@@ -101,11 +101,9 @@ public class ConsultaiCarrosSteps {
 	
 	
 	
-	@After(value = "@criarConsultaParaRetornar3Carros", order = 1)
+	@After(value = "@criarConsultaParaRetornar3Carros", order = 2)
 	public void finalizaPDF(Scenario cenario) throws Exception {
 		pdfgenerator.fechaPDF("Fechar PDF");
-
-
 	}
 
 }

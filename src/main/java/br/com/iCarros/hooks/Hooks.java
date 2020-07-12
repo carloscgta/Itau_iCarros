@@ -22,7 +22,7 @@ public class Hooks {
 	@Before
 	public void antesScenario(Scenario cenario) throws Exception {
 		
-		System.out.println("This will run before the Scenario");
+		System.out.println("Irá rodar antes de cada cenário");
 		DriverFactory.getDriver(TipoDriver.CHROME)
 		.get("https://www.icarros.com.br/principal/index.jsp");
 		

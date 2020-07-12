@@ -61,13 +61,13 @@ public class PDFGenerator extends DriverFactory {
 	document = new Document(PageSize.LETTER.rotate());
 	document.setPageSize(PageSize.LETTER);
 	
-	File file = new File(featureName);
+	File file = new File("./src/main/report/" +featureName);
 	file.mkdir();
-	String pathtoFolder=file.getAbsolutePath().toString();
+	String pathtoFolder=file.getPath().toString();
 	//String pathtoFolder=file.getPath().toString();
 	System.out.println("O Path do Arquivo PDF é: "+pathtoFolder);
 	//String path= Utils.configProp().getProperty("Path_ScreenShot").toString();
-	PdfWriter.getInstance(document, new FileOutputStream((pathtoFolder+"//"+cenario.getName()+" "+"evidencia.pdf")));
+	PdfWriter.getInstance(document, new FileOutputStream((pathtoFolder+"/"+cenario.getName()+" "+"evidencia.pdf")));
 	
 	
 	document.open();

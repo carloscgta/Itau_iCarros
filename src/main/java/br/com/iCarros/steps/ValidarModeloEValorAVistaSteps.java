@@ -21,7 +21,7 @@ public class ValidarModeloEValorAVistaSteps {
 	PDFGenerator pdfgenerator = new PDFGenerator();
 	YamlHelper yaml = new YamlHelper();
 	
-	@Before(value = "@validarModeloEValorAVista", order = 2)
+	@Before(value = "@validarModeloEValorAVista", order = 1)
 	public void before(Scenario cenario) throws Exception {
 		pdfgenerator.iniciaPDF(cenario);
 	}
@@ -92,6 +92,7 @@ public void informo_a_cidade_desejada(String localidade) throws Throwable {
 		
 	
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).extrairDadosResultadoBuscaCarrosSalvarArquivo();
+		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados");
 		
 //		DriverFactory.page.GetInstance(HomeiCarrosPage.class).salvarTextoEmTXTFile();
 			
