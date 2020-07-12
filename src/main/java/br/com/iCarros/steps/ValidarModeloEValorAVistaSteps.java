@@ -90,8 +90,11 @@ public void informo_a_cidade_desejada(String localidade) throws Throwable {
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
 		
-		
+	
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).extrairDadosResultadoBuscaCarrosSalvarArquivo();
+		
+//		DriverFactory.page.GetInstance(HomeiCarrosPage.class).salvarTextoEmTXTFile();
+			
 		
 //		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarElementosResutladosBusca(modeloResultadoListaCarro1));
 //		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados: "+modeloResultadoListaCarro1);
@@ -112,6 +115,8 @@ public void informo_a_cidade_desejada(String localidade) throws Throwable {
 	@After(value = "@validarModeloEValorAVista", order = 2)
 	public void finalizaPDF(Scenario cenario) throws Exception {
 		pdfgenerator.fechaPDF("Fechar PDF");
+		
+		DriverFactory.page.GetInstance(HomeiCarrosPage.class).salvarTextoEmTXTFile();
 
 	}
 

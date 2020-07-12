@@ -3,6 +3,7 @@ package br.com.iCarros.pages;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -96,7 +97,7 @@ public class HomeiCarrosPage extends BasePage {
 	public WebElement ulListaResultadosBusca2;
 	
 	
-	@FindBy(xpath = "//ul[@class='listavertical']//li//a//ul//li")
+	@FindBy(xpath = "//ul[@class='listavertical']")
 	public WebElement ulListaResultadosBusca3;
 			
 	@FindBy(xpath = "//ul[@class='listavertical']")
@@ -261,6 +262,26 @@ public void extrairDadosResultadoBuscaCarrosSalvarArquivo() throws InterruptedEx
     }
 	
 	
+}
+
+
+public void salvarTextoEmTXTFile(){
+
+String infoResultadoBuscaCarros =  ulListaResultadosBusca3.getText();
+System.out.println(infoResultadoBuscaCarros);
+
+File file = new File("src/main/infoResultadoBuscaCarros.text");
+
+try {
+  FileWriter fw = new FileWriter(file, true);
+  fw.write(infoResultadoBuscaCarros);
+  fw.flush();
+  fw.close();
+} catch (IOException e) {
+  e.printStackTrace();
+  System.out.println(e);
+}
+
 }
 
 }
