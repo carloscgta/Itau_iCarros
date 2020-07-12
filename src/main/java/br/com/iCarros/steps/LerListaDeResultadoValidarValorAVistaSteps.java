@@ -1,5 +1,7 @@
 package br.com.iCarros.steps;
 
+import org.junit.Assert;
+
 import br.com.iCarros.core.DriverFactory;
 import br.com.iCarros.core.PDFGenerator;
 import br.com.iCarros.core.YamlHelper;
@@ -93,12 +95,16 @@ public class LerListaDeResultadoValidarValorAVistaSteps {
 	}
 
 	@Then("^aplicacao deve retornar a lista de resultado da busca com os seguintes dados \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\" \"([^\"]*)\"$")
-	public void aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados(String arg1, String arg2, String arg3, String arg4) throws Throwable {
+	public void aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados(String modeloResultadoListaCarro1, String valorAVistaCarro1, String modeloResultadoListaCarro2, String valorAVistaCarro2) throws Throwable {
 
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).clicarCheckboxCambioAutomcatio();
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
 		pdfgenerator.conteudoPDF("aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados");
+		
+		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarPrecoAVista(valorAVistaCarro1));
+		pdfgenerator.conteudoPDF("aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados: "+ valorAVistaCarro1);
+		
 		
 	}
 	

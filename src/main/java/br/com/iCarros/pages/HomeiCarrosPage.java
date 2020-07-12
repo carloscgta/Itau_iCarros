@@ -1,6 +1,8 @@
 package br.com.iCarros.pages;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -283,5 +285,44 @@ try {
 }
 
 }
+
+public String lerTXTFile() throws IOException{
+
+	String conteudoArquivoDados ="";
+//abrir arquivo txt.file
+FileReader fReader = new FileReader("src/main/infoResultadoBuscaCarros.text");
+BufferedReader bReader = new BufferedReader(fReader);
+
+//AQUI LEIO O CONTEUDO DO ARQUIVO E GUARDO NA VARIAVEL conteudo
+while(bReader.ready()){
+	conteudoArquivoDados += bReader.readLine() + "\n";
+}
+
+System.out.println(conteudoArquivoDados);
+bReader.close();
+
+return conteudoArquivoDados;
+
+}
+
+public  boolean validarPrecoAVista(String precoAVista) throws InterruptedException, IOException {
+	
+	boolean result = false;
+	moverParaElemento(divResultadoBusca);
+	String textoDivDigital = lerTXTFile();
+	System.out.println(textoDivDigital);
+	if(textoDivDigital.contains(precoAVista)){
+		
+		result = true;
+	}else {
+		
+		result = false;
+	}
+				
+	return result;
+	
+	
+}
+
 
 }
