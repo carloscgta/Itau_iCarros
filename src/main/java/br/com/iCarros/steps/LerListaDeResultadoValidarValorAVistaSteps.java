@@ -102,9 +102,6 @@ public class LerListaDeResultadoValidarValorAVistaSteps {
 		
 	}
 	
-	
-	
-	
 	@After(value = "@lerListaDeResultadoValidarValorAVista", order = 2)
 	public void finalizaPDF(Scenario cenario) throws Exception {
 		pdfgenerator.fechaPDF("Fechar PDF");
