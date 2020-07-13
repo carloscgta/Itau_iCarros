@@ -33,7 +33,7 @@ public class Hooks {
 	@AfterClass
 	public void depoisScenario(Scenario cenario) throws Exception {
 		 System.out.println("This will run after the Scenario");
-		 DriverFactory.encerraDriver();
+		 DriverFactory.closeDriver();
 		 
 	}
 

@@ -178,9 +178,6 @@ public class PDFGenerator extends DriverFactory {
 
 	document.add(new Paragraph(conteudo, color));
 
-	//File screenshot = ((TakesScreenshot) getDriver(TipoDriver.CHROME)).getScreenshotAs(OutputType.FILE);
-	//FileUtils.copyFile(screenshot, new File("screenshot.png"));
-	
 	String path = util.takeScreenshot(DriverFactory.getDriver(TipoDriver.CHROME));
 	Image image = Image.getInstance(path);
 	

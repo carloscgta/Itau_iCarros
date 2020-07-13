@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:src/main/report/cucumber-reports/report.html"},
 
 		 features = {"./src/test/resources/features" }, 
-tags = { "@lerListaDeResultadoValidarValorAVista" })
+tags = { "@criarConsultaParaRetornar3Carros" })
 
 public class RunnerConsulta {
 
