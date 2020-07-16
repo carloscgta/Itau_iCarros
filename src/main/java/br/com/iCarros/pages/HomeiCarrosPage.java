@@ -209,9 +209,6 @@ public boolean validarElementosResutladosBusca(String texto) throws InterruptedE
 	    	  System.out.println("Contém o: "+texto);
 	    	  result = true;
 	      }
-	      else {
-	    		  return false;
-	    	  }
 	    	
 	}
 	
@@ -310,12 +307,13 @@ try {
 	}
 	
 	public boolean validarResultadoDaBuscaNaPagiaiCarros(String precoAVista)  throws InterruptedException, IOException {
-		
+		boolean result = false;
 		String textoDivResultadoBusca = h2ResultadoBuscaNomeVeiculo.getText();
 		
-		validarElementosResutladosBusca(precoAVista);
+		result = ValidarLerTXTFile(precoAVista);
 		
-		return false;
+		
+		return result;
 		
 		
 	}

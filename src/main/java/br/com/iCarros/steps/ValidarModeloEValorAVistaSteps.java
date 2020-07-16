@@ -92,7 +92,7 @@ public void informo_a_cidade_desejada(String localidade) throws Throwable {
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
 		
-			
+		
 		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarResultadoDaBuscaNaPagiaiCarros("19.000"));
 		pdfgenerator.conteudoPDF("deve_retorna_lista_de_carros_com_os_criterios_definidos_na_bsuca");
 		
