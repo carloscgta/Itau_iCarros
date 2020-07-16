@@ -86,7 +86,7 @@ public class HomeiCarrosPage extends BasePage {
 	public WebElement buttonBuscar;
 	
 			
-	@FindBy(xpath = "(//*[@id='true']/span)[3]")
+	@FindBy(xpath = "//ul[@id='ftr_ul_cambio']//a[@id='true']")
 	public WebElement checkBoxCambioAutomatico;
 	
 	
@@ -95,9 +95,12 @@ public class HomeiCarrosPage extends BasePage {
 	public WebElement divResultadoBusca;
 	
 	
-	@FindBy(xpath = "//ul[@class='listahorizontal']//li")
-	public WebElement ulListaResultadosBusca2;
+	@FindBy(xpath = "//ul[@class='listahorizontal']//li//parent::li//p")
+	public List<WebElement> ulListaResultadosBusca2;
 	
+	
+	@FindBy(xpath = "//ul[@class='listavertical']//div[@class='dados_veiculo']//ul[@class='listahorizontal']")
+	public List<WebElement> ulListadados_veiculoResultadoBusca;
 	
 	@FindBy(xpath = "//ul[@class='listavertical']")
 	public WebElement ulListaResultadosBusca3;
@@ -220,7 +223,7 @@ public boolean validarElementosResutladosBusca(String texto) throws InterruptedE
 
 
 public  boolean validarResultado(String numOfertas) throws InterruptedException {
-	
+	ResultadoBuscaPojo resultadobuscapojo = new ResultadoBuscaPojo();
 	boolean result = false;
 	moverParaElemento(divResultadoBusca);
 	String textoDivDigital = divResultadoBusca.getText();
@@ -228,11 +231,10 @@ public  boolean validarResultado(String numOfertas) throws InterruptedException 
 	if(textoDivDigital.contains(numOfertas)){
 		
 		result = true;
-	}else {
-		
-		result = false;
 	}
-				
+	
+	listaUlElementos(ulListadados_veiculoResultadoBusca, textoDivDigital );
+			
 	return result;
 	
 	

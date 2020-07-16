@@ -24,12 +24,8 @@ public class BasePage extends PageGenerator {
 	
 	Properties prop = new Properties();
 
-	// If we need we can use custom wait in BasePage and all page classes
-
 	WebDriverWait wait = new WebDriverWait(this.driver, 40);
  
-	// Click Method by using JAVA Generics (You can use both By or Webelement)
-
 
 	public <T> void esperarAntesDeClicar(T elementAttr) throws InterruptedException {
 		
@@ -171,8 +167,7 @@ public class BasePage extends PageGenerator {
 		
 	}
 	
-	
-	
+
 	
 	public <T> void pressionarPageUP() throws InterruptedException {
 
