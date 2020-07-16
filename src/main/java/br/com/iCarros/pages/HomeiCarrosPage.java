@@ -225,9 +225,10 @@ public boolean validarElementosResutladosBusca(String texto) throws InterruptedE
 public  boolean validarResultado(String modelo) throws InterruptedException {
 	//ResultadoBuscaPojo resultadobuscapojo = new ResultadoBuscaPojo();
 	boolean result = false;
-//	moverParaElemento(ulListaResultadosBusca3);
+//	
 	String textoDivDigital = h2ResultadoBuscaNomeVeiculo.getText();
-	System.out.println(textoDivDigital);
+	System.out.println("Dados Exibidos no forma de resultado sao:"+ulListadados_veiculoResultadoBusca);
+	
 	if(textoDivDigital.contains(modelo)) {
 		
 		result=true;
@@ -257,7 +258,6 @@ public void extrairDadosResultadoBuscaCarrosSalvarArquivo() throws InterruptedEx
 	String textoDivResultadoBusca = h2ResultadoBuscaNomeVeiculo.getText();
     System.out.println(textoDivResultadoBusca);
 
-
     String csvOutputFile = "tableResultadoBuscaiCarros.csv";
 
     try(FileWriter writecsv = new FileWriter("src/main/tableResultadoBuscaiCarros.csv")) {
@@ -286,31 +286,45 @@ try {
 }
 
 }
-
-public String lerTXTFile() throws IOException{
-
-	String conteudoArquivoDados ="";
-//abrir arquivo txt.file
-FileReader fReader = new FileReader("src/main/infoResultadoBuscaCarros.text");
-BufferedReader bReader = new BufferedReader(fReader);
-
-//AQUI LEIO O CONTEUDO DO ARQUIVO E GUARDO NA VARIAVEL conteudo
-while(bReader.ready()){
-	conteudoArquivoDados += bReader.readLine() + "\n";
-}
-
-System.out.println(conteudoArquivoDados);
-bReader.close();
-
-return conteudoArquivoDados;
-
-}
+	
+	public boolean ValidarLerTXTFile(String texto) throws IOException{
+		boolean result = false;
+		String conteudoArquivoDados ="";
+	//abrir arquivo txt.file
+	FileReader fReader = new FileReader("src/main/infoResultadoBuscaCarros.text");
+	BufferedReader bReader = new BufferedReader(fReader);
+	
+	//AQUI LEIO O CONTEUDO DO ARQUIVO E GUARDO NA VARIAVEL conteudo
+	while(bReader.ready()){
+		conteudoArquivoDados += bReader.readLine() + "\n";
+	}
+	
+	System.out.println(conteudoArquivoDados);
+	if(conteudoArquivoDados.contains(texto)) {
+		result = true;
+	}
+	bReader.close();
+	
+	return result;
+	
+	}
+	
+	public boolean validarResultadoDaBuscaNaPagiaiCarros(String precoAVista)  throws InterruptedException, IOException {
+		
+		String textoDivResultadoBusca = h2ResultadoBuscaNomeVeiculo.getText();
+		
+		validarElementosResutladosBusca(precoAVista);
+		
+		return false;
+		
+		
+	}
 
 public  boolean validarPrecoAVista(String precoAVista) throws InterruptedException, IOException {
 	
 	boolean result = false;
 	moverParaElemento(divResultadoBusca);
-	String textoDivDigital = lerTXTFile();
+	String textoDivDigital = h2ResultadoBuscaNomeVeiculo.getText();
 	System.out.println(textoDivDigital);
 	if(textoDivDigital.contains(precoAVista)){
 		

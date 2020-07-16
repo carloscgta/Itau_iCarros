@@ -1,5 +1,7 @@
 package br.com.iCarros.steps;
 
+import org.junit.Assert;
+
 import br.com.iCarros.core.DriverFactory;
 import br.com.iCarros.core.PDFGenerator;
 import br.com.iCarros.core.YamlHelper;
@@ -90,24 +92,9 @@ public void informo_a_cidade_desejada(String localidade) throws Throwable {
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
 		
-	
-		DriverFactory.page.GetInstance(HomeiCarrosPage.class).extrairDadosResultadoBuscaCarrosSalvarArquivo();
-		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados");
-		
-//		DriverFactory.page.GetInstance(HomeiCarrosPage.class).salvarTextoEmTXTFile();
 			
-		
-//		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarElementosResutladosBusca(modeloResultadoListaCarro1));
-//		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados: "+modeloResultadoListaCarro1);
-		
-//		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarElementosResutladosBusca(valorAVistaCarro1));
-//		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados: "+valorAVistaCarro1);
-//		
-//		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarElementosResutladosBusca(modeloResultadoListaCarro2));
-//		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados: "+modeloResultadoListaCarro2);
-//		
-//		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarElementosResutladosBusca(valorAVistaCarro2));
-//		pdfgenerator.conteudoPDF("na_lista_de_resulta_de_busca_deve_ter_os_seguintes_dados: "+valorAVistaCarro2);
+		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarResultadoDaBuscaNaPagiaiCarros("19.000"));
+		pdfgenerator.conteudoPDF("deve_retorna_lista_de_carros_com_os_criterios_definidos_na_bsuca");
 		
 		
 	}

@@ -96,13 +96,12 @@ public class ConsultaiCarrosSteps {
 	DriverFactory.page.GetInstance(HomeiCarrosPage.class).clicarCheckboxCambioAutomcatio();
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
+	
+		DriverFactory.page.GetInstance(HomeiCarrosPage.class).salvarTextoEmTXTFile();
 		
 		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarResultado(modeloCarroResult));
 		pdfgenerator.conteudoPDF("deve_retorna_lista_de_carros_com_os_criterios_definidos_na_bsuca");
 	}
-	
-	
-	
 	
 	@After(value = "@criarConsultaParaRetornarListaDeOfertas", order = 2)
 	public void finalizaPDF(Scenario cenario) throws Exception {

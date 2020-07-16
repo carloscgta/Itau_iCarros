@@ -9,7 +9,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(glue = { "br.com.iCarros.steps", "br.com.iCarros.hooks"}, 
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:src/main/report/cucumber-reports/report.html"},
 		 features = {"./src/test/resources/features" }, 
-tags = { "@criarConsultaParaRetornarListaDeOfertas" })
+tags = { "@validarModeloEValorAVista" })
 
 public class RunnerConsulta {
 
