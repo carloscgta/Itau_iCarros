@@ -19,15 +19,17 @@ public class ConsultaiCarrosSteps {
 	public ConsultaiCarrosSteps() {
 	
 	}
+	String modeloCarroResult;
 	
 	PDFGenerator pdfgenerator = new PDFGenerator();
 	YamlHelper yaml = new YamlHelper();
 	
-	@Before(value = "@criarConsultaParaRetornar3Carros", order = 1)
+	@Before(value = "@criarConsultaParaRetornarListaDeOfertas", order = 1)
 	public void before(Scenario cenario) throws Exception {
 		pdfgenerator.iniciaPDF(cenario);
 	}
 	
+
 	@Given("^que estou na pagina de consulta do site iCarros$")
 	public void que_estou_na_pagina_de_consulta_do_site_iCarros() throws Throwable {
 		
@@ -40,6 +42,7 @@ public class ConsultaiCarrosSteps {
 	public void seleciono_a_Marca(String marca) throws Throwable {
 	
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).selecionarMarca(marca);
+		
 		pdfgenerator.conteudoPDF("seleciono_a Marca");
 	}
 
@@ -47,6 +50,7 @@ public class ConsultaiCarrosSteps {
 	public void seleciono_o_Modelo(String modelo) throws Throwable {
 	  
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).selecionarModelo(modelo);
+		modeloCarroResult = modelo;
 		pdfgenerator.conteudoPDF("seleciono_o_Modelo:"+modelo);
 	}
 
@@ -84,24 +88,23 @@ public class ConsultaiCarrosSteps {
 	public void clicar_em_Buscar() throws Throwable {
 	    
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).clicarBotaoBuscar();
-		pdfgenerator.conteudoPDF("realizado a ação de clicar no botão Buscar");
-	
+
 	}
 	
-	@Then("^deve retornar lista de carros com os criterios definidos na bsuca exibindo apenas \"([^\"]*)\" ofertas$")
-	public void deve_retornar_lista_de_carros_com_os_criterios_definidos_na_bsuca_exibindo_apenas_ofertas(String x) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		DriverFactory.page.GetInstance(HomeiCarrosPage.class).clicarCheckboxCambioAutomcatio();
+	@Then("^deve retornar lista de carros com os criterios definidos na bsuca exibindo as ofertas$")
+	public void deve_retornar_lista_de_carros_com_os_criterios_definidos_na_bsuca_exibindo_as_ofertas() throws Throwable {
+	DriverFactory.page.GetInstance(HomeiCarrosPage.class).clicarCheckboxCambioAutomcatio();
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
 		
-		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarResultado(x));
+		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarResultado(modeloCarroResult));
 		pdfgenerator.conteudoPDF("deve_retorna_lista_de_carros_com_os_criterios_definidos_na_bsuca");
 	}
 	
 	
 	
-	@After(value = "@criarConsultaParaRetornar3Carros", order = 2)
+	
+	@After(value = "@criarConsultaParaRetornarListaDeOfertas", order = 2)
 	public void finalizaPDF(Scenario cenario) throws Exception {
 		pdfgenerator.fechaPDF("Fechar PDF");
 	}

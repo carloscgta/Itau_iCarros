@@ -77,7 +77,6 @@ public class PDFGenerator extends DriverFactory {
 	
     String[] headers = new String[]{ "ENV", "Feature", "Cenario", "Status" ,"Data"};
     String[][] rows = new String[][]{{yamlhelper.getAtributo("nome-env","uat").toString()+" - OS: "+getOperatingSystem(), featureName, "Cenário: " + cenario.getName(),cenario.getStatus() ,converterDataParaString},};
-    
 
     try {
         

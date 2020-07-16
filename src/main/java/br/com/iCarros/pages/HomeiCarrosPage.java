@@ -102,8 +102,8 @@ public class HomeiCarrosPage extends BasePage {
 	@FindBy(xpath = "//ul[@class='listavertical']//div[@class='dados_veiculo']//ul[@class='listahorizontal']")
 	public List<WebElement> ulListadados_veiculoResultadoBusca;
 	
-	@FindBy(xpath = "//ul[@class='listavertical']")
-	public WebElement ulListaResultadosBusca3;
+	@FindBy(xpath = "//li[@id='ac29906474']//h2[1]")
+	public WebElement h2ResultadoBuscaNomeVeiculo;
 			
 	@FindBy(xpath = "//ul[@class='listavertical']")
 	public List<WebElement> ulListaResultadosBusca;
@@ -222,26 +222,25 @@ public boolean validarElementosResutladosBusca(String texto) throws InterruptedE
 
 
 
-public  boolean validarResultado(String numOfertas) throws InterruptedException {
-	ResultadoBuscaPojo resultadobuscapojo = new ResultadoBuscaPojo();
+public  boolean validarResultado(String modelo) throws InterruptedException {
+	//ResultadoBuscaPojo resultadobuscapojo = new ResultadoBuscaPojo();
 	boolean result = false;
-	moverParaElemento(divResultadoBusca);
-	String textoDivDigital = divResultadoBusca.getText();
+//	moverParaElemento(ulListaResultadosBusca3);
+	String textoDivDigital = h2ResultadoBuscaNomeVeiculo.getText();
 	System.out.println(textoDivDigital);
-	if(textoDivDigital.contains(numOfertas)){
+	if(textoDivDigital.contains(modelo)) {
 		
-		result = true;
+		result=true;
 	}
-	
-	listaUlElementos(ulListadados_veiculoResultadoBusca, textoDivDigital );
-			
-	return result;
+		
+		listaUlElementos(ulListadados_veiculoResultadoBusca );
+		
+		return result;
 	
 	
 }
 
 public void pageUp() throws InterruptedException {
-	moverParaElemento(divResultadoBusca);
 	pressionarPageUP();
 	pressionarPageUP();
 	pressionarPageUP();
@@ -255,7 +254,7 @@ public void pageUp() throws InterruptedException {
 public void extrairDadosResultadoBuscaCarrosSalvarArquivo() throws InterruptedException, IOException {
 
 	
-	String textoDivResultadoBusca = ulListaResultadosBusca3.getText();
+	String textoDivResultadoBusca = h2ResultadoBuscaNomeVeiculo.getText();
     System.out.println(textoDivResultadoBusca);
 
 
@@ -271,7 +270,7 @@ public void extrairDadosResultadoBuscaCarrosSalvarArquivo() throws InterruptedEx
 
 public void salvarTextoEmTXTFile(){
 
-String infoResultadoBuscaCarros =  ulListaResultadosBusca3.getText();
+String infoResultadoBuscaCarros =  h2ResultadoBuscaNomeVeiculo.getText();
 System.out.println(infoResultadoBuscaCarros);
 
 File file = new File("src/main/infoResultadoBuscaCarros.text");

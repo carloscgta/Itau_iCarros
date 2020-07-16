@@ -7,7 +7,7 @@
 Feature: Consulta Carros
  				Eu como usuário gostaria de acessar o site iCarros e realizar uma consulta de carros
 
-  @criarConsultaParaRetornar3Carros
+  @criarConsultaParaRetornarListaDeOfertas
   Scenario Outline: Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008
     Given que estou na pagina de consulta do site iCarros
     And seleciono a Marca "<marca>"
@@ -16,7 +16,7 @@ Feature: Consulta Carros
     And seleciono o Preco minimo "<precoMin>" e Preco Maximo "<precoMax>"
     And Defino a Localidade "<localidade>"
     When clicar em Buscar
-    Then deve retornar lista de carros com os criterios definidos na bsuca exibindo apenas "12 ofertas" ofertas
+    Then deve retornar lista de carros com os criterios definidos na bsuca exibindo as ofertas
     Examples: 
       | marca  			| modelo 		| anoMinimo  	|anoMaximo  | precoMin 				| precoMax  				|localidade 			 	| 
     	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 14 mil    | Até R$ 20 mil  		|São Paulo - SP  	| 
@@ -34,7 +34,7 @@ Feature: Consulta Carros
     Then na lista de resulta de busca deve ter os seguintes dados "<modeloResultadoListaCarro1>" "<valorAVistaCarro1>" "<modeloResultadoListaCarro2>" "<valorAVistaCarro2>"
     Examples: 
       | marca  			| modelo 		| anoMinimo  	|anoMaximo  | precoMin 				| precoMax  				|localidade 			 	| modeloResultadoListaCarro1		 			 													| valorAVistaCarro1			 	| modeloResultadoListaCarro2															| valorAVistaCarro2			|
-    	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 14 mil    | Até R$ 20 mil  		|São Paulo - SP  	| Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut) 							| R$ 19.890,00 				 		| Chevrolet Astra Hatch Advantage 2.0 (Flex)						 	| R$ 19.900,00 					|
+    	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 17 mil    | Até R$ 20 mil  		|São Paulo - SP  	| Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut) 							| R$ 19.890,00 				 		| Chevrolet Astra Hatch Advantage 2.0 (Flex)						 	| R$ 19.900,00 					|
  
    @lerListaDeResultadoValidarValorAVista
   Scenario Outline: Ler a lista de carros criada na tabela anterior validando o valor a Vista
@@ -48,7 +48,7 @@ Feature: Consulta Carros
     Then aplicacao deve retornar a lista de resultado da busca com os seguintes dados "<modeloResultadoListaCarro1>" "<valorAVistaCarro1>" "<modeloResultadoListaCarro2>" "<valorAVistaCarro2>"
     Examples: 
       | marca  			| modelo 		| anoMinimo  	|anoMaximo  | precoMin 				| precoMax  				|localidade 			 	| modeloResultadoListaCarro1		 			 													| valorAVistaCarro1			 	| modeloResultadoListaCarro2															| valorAVistaCarro2			|
-    	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 14 mil    | Até R$ 20 mil  		|São Paulo - SP  	| Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut) 							| R$ 19.890,00 				 		| Chevrolet Astra Hatch Advantage 2.0 (Flex)						 	| R$ 19.900,00 					|
+    	| Chevrolet		|Astra Hatch	|De 2005  		|Até 2008  	| De R$ 17 mil    | Até R$ 20 mil  		|São Paulo - SP  	| Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut) 							| R$ 19.890,00 				 		| Chevrolet Astra Hatch Advantage 2.0 (Flex)						 	| R$ 19.900,00 					|
       
       
       

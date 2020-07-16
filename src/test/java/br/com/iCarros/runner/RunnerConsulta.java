@@ -8,9 +8,8 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(glue = { "br.com.iCarros.steps", "br.com.iCarros.hooks"}, 
 plugin = {"com.cucumber.listener.ExtentCucumberFormatter:src/main/report/cucumber-reports/report.html"},
-
 		 features = {"./src/test/resources/features" }, 
-tags = { "@criarConsultaParaRetornar3Carros" })
+tags = { "@criarConsultaParaRetornarListaDeOfertas" })
 
 public class RunnerConsulta {
 

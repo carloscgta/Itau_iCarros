@@ -146,23 +146,15 @@ public class BasePage extends PageGenerator {
 		
 	}
 	
-	public <T> boolean listaUlElementos(T elementAttr, String texto) throws InterruptedException {
-		
-		boolean result = false;
+	public <T> void listaUlElementos(List<T> elementAttr) throws InterruptedException {
 		
 		@SuppressWarnings("unchecked")
-		List<WebElement> allElements = (List<WebElement>) driver.findElement((By) elementAttr); 
+		List<WebElement> allElements = (List<WebElement>) elementAttr; 
 
 		for (WebElement element: allElements) {
 		      System.out.println(element.getText());
-		      if(element.getText().contains(texto))
-		    	  result = true;
-		    	  else
-		    	  return false;
+		      		    	  
 		}
-		
-		
-		return result;
 		
 		
 	}
