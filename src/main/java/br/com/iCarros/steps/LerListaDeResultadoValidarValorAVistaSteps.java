@@ -101,9 +101,9 @@ public class LerListaDeResultadoValidarValorAVistaSteps {
 		
 		DriverFactory.page.GetInstance(HomeiCarrosPage.class).pageUp();
 		pdfgenerator.conteudoPDF("aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados");
-		
-		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarPrecoAVista(valorAVistaCarro1));
-		pdfgenerator.conteudoPDF("aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados: "+ valorAVistaCarro1);
+				
+		Assert.assertTrue(DriverFactory.page.GetInstance(HomeiCarrosPage.class).validarNomeVeiculo("Astra Hatch"));
+		pdfgenerator.conteudoPDF("aplicacao_deve_retornar_a_lista_de_resultado_da_busca_com_os_seguintes_dados: "+ modeloResultadoListaCarro1);
 		
 		
 	}

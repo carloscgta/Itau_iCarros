@@ -106,9 +106,11 @@ public class HomeiCarrosPage extends BasePage {
 	public WebElement h2ResultadoBuscaNomeVeiculo;
 			
 	@FindBy(xpath = "//ul[@class='listavertical']")
-	public List<WebElement> ulListaResultadosBusca;
+	public WebElement ulListaResultadosBusca;
 			
-			
+		
+	@FindBy(xpath = "//ul[@class='listavertical']")
+	public List<WebElement> ulListaResultadosBusca4;
 	/***********************MÉTODOS*****************************************/
 	
 	public void clicarBotaoOKEntendi() throws InterruptedException {
@@ -200,7 +202,7 @@ public boolean validarElementosResutladosBusca(String texto) throws InterruptedE
 
 	boolean result = false;
 	
-	List<WebElement> allElements = ulListaResultadosBusca;
+	List<WebElement> allElements = ulListaResultadosBusca4;
 
 	for (WebElement element: allElements) {
 	      System.out.println(element.getText());
@@ -223,7 +225,7 @@ public  boolean validarResultado(String modelo) throws InterruptedException {
 	//ResultadoBuscaPojo resultadobuscapojo = new ResultadoBuscaPojo();
 	boolean result = false;
 //	
-	String textoDivDigital = h2ResultadoBuscaNomeVeiculo.getText();
+	String textoDivDigital = ulListaResultadosBusca.getText();
 	System.out.println("Dados Exibidos no forma de resultado sao:"+ulListadados_veiculoResultadoBusca);
 	
 	if(textoDivDigital.contains(modelo)) {
@@ -321,10 +323,31 @@ try {
 public  boolean validarPrecoAVista(String precoAVista) throws InterruptedException, IOException {
 	
 	boolean result = false;
-	moverParaElemento(divResultadoBusca);
+	
 	String textoDivDigital = h2ResultadoBuscaNomeVeiculo.getText();
 	System.out.println(textoDivDigital);
 	if(textoDivDigital.contains(precoAVista)){
+		
+		result = true;
+	}else {
+		
+		result = false;
+	}
+				
+	return result;
+	
+	
+}
+
+public  boolean validarNomeVeiculo(String nomeCarro) throws InterruptedException, IOException {
+	
+	boolean result = false;
+	System.out.println(nomeCarro);
+	String textoDivDigital = h2ResultadoBuscaNomeVeiculo.getText();
+	
+	System.out.println(textoDivDigital);
+	
+	if(textoDivDigital.contains(nomeCarro)){
 		
 		result = true;
 	}else {

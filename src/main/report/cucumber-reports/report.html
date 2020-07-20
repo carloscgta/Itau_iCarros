@@ -35,6 +35,7 @@
 		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
 			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
 						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' view='exception-view' onclick="configureView(2)"><i class='material-icons'>bug_report</i></a></li>
 			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></a></li>
 		</ul>
 		<!-- report name -->
@@ -44,7 +45,7 @@
 		<!-- nav-right -->
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<a href='#!'>
-			<span class='label blue darken-3 suite-start-time'>Jul 16, 2020 03:50:23 PM</span>
+			<span class='label blue darken-3 suite-start-time'>Jul 16, 2020 04:18:24 PM</span>
 			</a>
 		</ul>
 	</div>
@@ -60,6 +61,8 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 										<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -72,7 +75,9 @@
 				</a>
 				<ul id='category-toggle' class='dropdown-content'>
 					<li><a href='#'>@geralConsultaiCarros</a></li>
+					<li><a href='#'>@criarConsultaParaRetornarListaDeOfertas</a></li>
 					<li><a href='#'>@validarModeloEValorAVista</a></li>
+					<li><a href='#'>@lerListaDeResultadoValidarValorAVista</a></li>
 					<li class='divider'></li>
 					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
 				</ul>
@@ -113,10 +118,10 @@
                     <canvas id='parent-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> feature(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> feature(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='100%'>1</span> feature(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -127,10 +132,10 @@
                     <canvas id='child-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>1</span> scenario(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>1</span> scenario(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='66.667%'>2</span> scenario(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
                 </div>
             </div>
         </div>
@@ -141,10 +146,10 @@
                     <canvas id='grandchild-analysis' width='90' height='70'></canvas>
                 </div>
                 <div class='block text-small'>
-                    <span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>8</span> step(s) passed</span>
+                    <span class='tooltipped' data-position='top' data-tooltip='33.333%'><span class='strong'>8</span> step(s) passed</span>
                 </div>
                 <div class='block text-small'>
-                    <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+                    <span class='strong tooltipped' data-position='top' data-tooltip='8.333%'>2</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='58.333%'>14</span> others
                 </div>
             </div>
         </div>
@@ -162,11 +167,11 @@
 </div>	<div class='subview-left left'>
 		<div class='view-summary'>
 			<ul id='test-collection' class='test-collection'>
-				<li class='test displayed active has-leaf pass' status='pass' bdd='true' test-id='1'>
+				<li class='test displayed active has-leaf fail' status='fail' bdd='true' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Consulta Carros</span>
-						<span class='test-time'>Jul 16, 2020 03:50:24 PM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-time'>Jul 16, 2020 04:18:24 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class="sr-filters bdd-filters">
@@ -178,43 +183,159 @@
 <div class='scenariooutline node' test-id='2' status='pass'>
     <span class='duration right label'>0h 0m 0s+0ms</span>
     <div class="bdd-test">
-        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> ScenarioOutline: Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</div>
+        <div class="scenario-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span> ScenarioOutline: Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008</div>
     </div>
     <ul class='steps'>
         <li test-id='3' class='node scenario pass' status='pass'>
-            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</div>
+            <div class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008</div>
             <ul class='gc steps'>
                     <li test-id='4' class='gc given pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given acessar a pagina iCarros</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Given que estou na pagina de consulta do site iCarros</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='5' class='gc and pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And escolher a Marca "Chevrolet"</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And seleciono a Marca "Chevrolet"</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='6' class='gc and pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And definir o Modelo "Astra Hatch"</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And seleciono o Modelo "Astra Hatch"</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='7' class='gc and pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And dedfinir  um  ano Minimo  "De 2005" e definir o ano Maximo "Até 2008"</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And seleciono o ano Minimo  "De 2005" e Ano Maximo "Até 2008"</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='8' class='gc and pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And escolher Preco minimo "De R$ 17 mil" e escolhe o Preco Maximo "Até R$ 20 mil"</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And seleciono o Preco minimo "De R$ 14 mil" e Preco Maximo "Até R$ 20 mil"</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='9' class='gc and pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And informo a cidade desejada "São Paulo - SP"</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>And Defino a Localidade "São Paulo - SP"</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='10' class='gc when pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When realizar a busca</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>When clicar em Buscar</h6>
                             <div class="node-step">passed</div>
                     </li>
                     <li test-id='11' class='gc then pass' status='pass'>
-                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then na lista de resulta de busca deve ter os seguintes dados "Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut)" "R$ 19.890,00" "Chevrolet Astra Hatch Advantage 2.0 (Flex)" "R$ 19.900,00"</h6>
+                        <h6 class="step-name"><span class='status pass' title='pass'><i class='material-icons'>check_circle</i></span>Then deve retornar lista de carros com os criterios definidos na bsuca exibindo as ofertas</h6>
                             <div class="node-step">passed</div>
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class='scenariooutline node' test-id='12' status='fail'>
+    <span class='duration right label'>0h 0m 0s+0ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='13' class='node scenario fail' status='fail'>
+            <div class="step-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</div>
+            <ul class='gc steps'>
+                    <li test-id='14' class='gc given fail' status='fail'>
+                        <h6 class="step-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Given acessar a pagina iCarros</h6>
+                            <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (59a2cc2fae78177b4081243b2b657b27)] -> xpath: //button[@class='btn-message']] (tried for 40 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.8.0', revision: '924c4067df', time: '2017-11-30T11:20:39.408Z'
+System info: host: 'NBBV030665', ip: '192.168.0.24', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\CARLOS~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 83.0.4103.116, webStorageEnabled: true}
+Session ID: 59a2cc2fae78177b4081243b2b657b27
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.iCarros.pages.BasePage.waitForElement(BasePage.java:56)
+	at br.com.iCarros.pages.BasePage.click(BasePage.java:40)
+	at br.com.iCarros.pages.HomeiCarrosPage.clicarBotaoOKEntendi(HomeiCarrosPage.java:118)
+	at br.com.iCarros.steps.ValidarModeloEValorAVistaSteps.acessar_a_pagina_iCarros(ValidarModeloEValorAVistaSteps.java:34)
+	at ✽.Given acessar a pagina iCarros(consultaCarros.feature:27)
+</textarea>
+                                                </li>
+                    <li test-id='15' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And escolher a Marca "Chevrolet"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='16' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And definir o Modelo "Astra Hatch"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='17' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And dedfinir  um  ano Minimo  "De 2005" e definir o ano Maximo "Até 2008"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='18' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And escolher Preco minimo "De R$ 17 mil" e escolhe o Preco Maximo "Até R$ 20 mil"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='19' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And informo a cidade desejada "São Paulo - SP"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='20' class='gc when skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>When realizar a busca</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='21' class='gc then skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then na lista de resulta de busca deve ter os seguintes dados "Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut)" "R$ 19.900,00" "Chevrolet Astra Hatch Advantage 2.0 (Flex)" "R$ 19.900,00"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class='scenariooutline node' test-id='22' status='fail'>
+    <span class='duration right label'>0h 0m 0s+0ms</span>
+    <div class="bdd-test">
+        <div class="scenario-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span> ScenarioOutline: Ler a lista de carros criada na tabela anterior validando o valor a Vista</div>
+    </div>
+    <ul class='steps'>
+        <li test-id='23' class='node scenario fail' status='fail'>
+            <div class="step-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Ler a lista de carros criada na tabela anterior validando o valor a Vista</div>
+            <ul class='gc steps'>
+                    <li test-id='24' class='gc given fail' status='fail'>
+                        <h6 class="step-name"><span class='status fail' title='fail'><i class='material-icons'>cancel</i></span>Given ir para a pagina iCarros</h6>
+                            <textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (59a2cc2fae78177b4081243b2b657b27)] -> xpath: //button[@class='btn-message']] (tried for 40 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.8.0', revision: '924c4067df', time: '2017-11-30T11:20:39.408Z'
+System info: host: 'NBBV030665', ip: '192.168.0.24', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\CARLOS~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 83.0.4103.116, webStorageEnabled: true}
+Session ID: 59a2cc2fae78177b4081243b2b657b27
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.iCarros.pages.BasePage.waitForElement(BasePage.java:56)
+	at br.com.iCarros.pages.BasePage.click(BasePage.java:40)
+	at br.com.iCarros.pages.HomeiCarrosPage.clicarBotaoOKEntendi(HomeiCarrosPage.java:118)
+	at br.com.iCarros.steps.LerListaDeResultadoValidarValorAVistaSteps.ir_para_a_pagina_iCarros(LerListaDeResultadoValidarValorAVistaSteps.java:33)
+	at ✽.Given ir para a pagina iCarros(consultaCarros.feature:41)
+</textarea>
+                                                </li>
+                    <li test-id='25' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And realizar a escolha da Marca "Chevrolet"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='26' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And realizar a escolha do Modelo "Astra Hatch"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='27' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And realizar a escolha do ano Minimo  "De 2005" e do ano Maximo "Até 2008"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='28' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And realizar a escolha do preco "De R$ 17 mil" e do Preco Maximo "Até R$ 20 mil"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='29' class='gc and skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>And definir a cidade "São Paulo - SP"</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='30' class='gc when skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>When clicar no botao Buscar</h6>
+                            <div class="node-step">skipped</div>
+                    </li>
+                    <li test-id='31' class='gc then skip' status='skip'>
+                        <h6 class="step-name"><span class='status skip' title='skip'><i class='material-icons'>redo</i></span>Then aplicacao deve retornar a lista de resultado da busca com os seguintes dados "Chevrolet Astra Hatch Advantage 2.0 (Flex) (Aut)" "R$ 19.890,00" "Chevrolet Astra Hatch Advantage 2.0 (Flex)" "R$ 19.900,00"</h6>
+                            <div class="node-step">skipped</div>
                     </li>
             </ul>
         </li>
@@ -264,13 +385,14 @@
 					<div class='category-heading'>
 						<span class='category-name'>@geralConsultaiCarros</span>
 						<span class='category-status right'>
-						<span class='label pass'>2</span>
+						<span class='label pass'>1</span>
+						<span class='label fail'>3</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 2</span>
-							
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span class='label red lighten-1 white-text'>Failed: 3</span>
 							
 						</div>
 						<div class='category-tests'>
@@ -284,14 +406,24 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jul 16, 2020 03:50:24 PM</td>
+										<td>Jul 16, 2020 04:18:24 PM</td>
 										<td class='linked' test-id='1'>Consulta Carros</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jul 16, 2020 04:18:24 PM</td>
+										<td class='linked' test-id='3'>Consulta Carros.Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008.Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 									<tr>
-										<td>Jul 16, 2020 03:50:24 PM</td>
-										<td class='linked' test-id='3'>Consulta Carros.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td>Jul 16, 2020 04:19:19 PM</td>
+										<td class='linked' test-id='13'>Consulta Carros.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+									<tr>
+										<td>Jul 16, 2020 04:20:26 PM</td>
+										<td class='linked' test-id='23'>Consulta Carros.Ler a lista de carros criada na tabela anterior validando o valor a Vista.Ler a lista de carros criada na tabela anterior validando o valor a Vista</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -300,7 +432,7 @@
 				</li>
 				<li class='category displayed active'>
 					<div class='category-heading'>
-						<span class='category-name'>@validarModeloEValorAVista</span>
+						<span class='category-name'>@criarConsultaParaRetornarListaDeOfertas</span>
 						<span class='category-status right'>
 						<span class='label pass'>1</span>
 						</span>
@@ -322,9 +454,75 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Jul 16, 2020 03:50:24 PM</td>
-										<td class='linked' test-id='3'>Consulta Carros.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</td>
+										<td>Jul 16, 2020 04:18:24 PM</td>
+										<td class='linked' test-id='3'>Consulta Carros.Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008.Acessar site iCarros realizar uma consulta pelo modelo Astra Hatch ano 2008</td>
 										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@validarModeloEValorAVista</span>
+						<span class='category-status right'>
+						<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 16, 2020 04:19:19 PM</td>
+										<td class='linked' test-id='13'>Consulta Carros.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>@lerListaDeResultadoValidarValorAVista</span>
+						<span class='category-status right'>
+						<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 16, 2020 04:20:26 PM</td>
+										<td class='linked' test-id='23'>Consulta Carros.Ler a lista de carros criada na tabela anterior validando o valor a Vista.Ler a lista de carros criada na tabela anterior validando o valor a Vista</td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -340,7 +538,95 @@
 		</div>
 	</div>
 </div>
-<!-- category view --><!-- exception view --><div id='dashboard-view' class='view hide'>
+<!-- category view --><div id='exception-view' class='view hide'>
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+				<i class='material-icons'>search</i> Search
+				</a>
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+	<div class='subview-left left'>
+		<div class='view-summary'>
+			<ul id='exception-collection' class='exception-collection'>
+				<li class='exception displayed active'>
+					<div class='exception-heading'>
+						<span class='exception-name'>org.openqa.selenium.TimeoutException</span>
+						<span class='exception-count right'><span class='label red lighten-1 white-text'>2</span></span>
+					</div>
+					<div class='exception-content hide'>
+						<div class='exception-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Jul 16, 2020 04:19:23 PM</td>
+										<td class='linked' test-id='14'>Consulta Carros.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta.Valide o modelo e o valor a vista do primeiro e do segundo carro da lista produzida pela consulta.Given acessar a pagina iCarros</td>
+										<td>
+											<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (59a2cc2fae78177b4081243b2b657b27)] -> xpath: //button[@class='btn-message']] (tried for 40 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.8.0', revision: '924c4067df', time: '2017-11-30T11:20:39.408Z'
+System info: host: 'NBBV030665', ip: '192.168.0.24', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\CARLOS~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 83.0.4103.116, webStorageEnabled: true}
+Session ID: 59a2cc2fae78177b4081243b2b657b27
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.iCarros.pages.BasePage.waitForElement(BasePage.java:56)
+	at br.com.iCarros.pages.BasePage.click(BasePage.java:40)
+	at br.com.iCarros.pages.HomeiCarrosPage.clicarBotaoOKEntendi(HomeiCarrosPage.java:118)
+	at br.com.iCarros.steps.ValidarModeloEValorAVistaSteps.acessar_a_pagina_iCarros(ValidarModeloEValorAVistaSteps.java:34)
+	at ✽.Given acessar a pagina iCarros(consultaCarros.feature:27)
+</textarea>
+										</td>
+									</tr>
+									<tr>
+										<td>Jul 16, 2020 04:20:28 PM</td>
+										<td class='linked' test-id='24'>Consulta Carros.Ler a lista de carros criada na tabela anterior validando o valor a Vista.Ler a lista de carros criada na tabela anterior validando o valor a Vista.Given ir para a pagina iCarros</td>
+										<td>
+											<textarea disabled class="code-block">org.openqa.selenium.TimeoutException: Expected condition failed: waiting for visibility of [[ChromeDriver: chrome on XP (59a2cc2fae78177b4081243b2b657b27)] -> xpath: //button[@class='btn-message']] (tried for 40 second(s) with 500 MILLISECONDS interval)
+Build info: version: '3.8.0', revision: '924c4067df', time: '2017-11-30T11:20:39.408Z'
+System info: host: 'NBBV030665', ip: '192.168.0.24', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '11.0.6'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, acceptSslCerts: false, applicationCacheEnabled: false, browserConnectionEnabled: false, browserName: chrome, chrome: {chromedriverVersion: 2.35.528161 (5b82f2d2aae0ca..., userDataDir: C:\Users\CARLOS~1\AppData\L...}, cssSelectorsEnabled: true, databaseEnabled: false, handlesAlerts: true, hasTouchScreen: false, javascriptEnabled: true, locationContextEnabled: true, mobileEmulationEnabled: false, nativeEvents: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: XP, platformName: XP, rotatable: false, setWindowRect: true, takesHeapSnapshot: true, takesScreenshot: true, unexpectedAlertBehaviour: , unhandledPromptBehavior: , version: 83.0.4103.116, webStorageEnabled: true}
+Session ID: 59a2cc2fae78177b4081243b2b657b27
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:82)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:231)
+	at br.com.iCarros.pages.BasePage.waitForElement(BasePage.java:56)
+	at br.com.iCarros.pages.BasePage.click(BasePage.java:40)
+	at br.com.iCarros.pages.HomeiCarrosPage.clicarBotaoOKEntendi(HomeiCarrosPage.java:118)
+	at br.com.iCarros.steps.LerListaDeResultadoValidarValorAVistaSteps.ir_para_a_pagina_iCarros(LerListaDeResultadoValidarValorAVistaSteps.java:33)
+	at ✽.Given ir para a pagina iCarros(consultaCarros.feature:41)
+</textarea>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='exception-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- exception view --><div id='dashboard-view' class='view hide'>
 	<div class='card-panel transparent np-v'>
 		<h5>Dashboard</h5>
 
@@ -354,31 +640,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Scenarios
-					<div class='panel-lead'>1</div>
+					<div class='panel-lead'>3</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>8</div>
+					<div class='panel-lead'>24</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Jul 16, 2020 03:50:23 PM</div>
+					<div class='panel-lead'>Jul 16, 2020 04:18:24 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Jul 16, 2020 03:51:17 PM</div>
+			 		<div class='panel-lead'>Jul 16, 2020 04:21:10 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 54s+133ms</div>
+					<div class='panel-lead'>0h 2m 46s+790ms</div>
 				</div>
 			</div>
 			<div class='col s6'>
@@ -395,7 +681,16 @@
 						</tr>
 						<tr>
 							<td>@geralConsultaiCarros</td>
-							<td>2</td>
+							<td>1</td>
+							<td>3</td>
+							<td>0</td>
+							<td>
+									25%
+							</td>
+						</tr>
+						<tr>
+							<td>@criarConsultaParaRetornarListaDeOfertas</td>
+							<td>1</td>
 							<td>0</td>
 							<td>0</td>
 							<td>
@@ -404,11 +699,20 @@
 						</tr>
 						<tr>
 							<td>@validarModeloEValorAVista</td>
+							<td>0</td>
 							<td>1</td>
 							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>@lerListaDeResultadoValidarValorAVista</td>
+							<td>0</td>
+							<td>1</td>
 							<td>0</td>
 							<td>
-									100%
+									0%
 							</td>
 						</tr>
 					</table>
@@ -423,33 +727,33 @@
 		<script>
 			var statusGroup = {
                 parentCount: 1,
-				passParent: 1,
-				failParent: 0,
+				passParent: 0,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
-				childCount: 1,
+				exceptionsParent: 1,
+				childCount: 3,
 				passChild: 1,
-				failChild: 0,
+				failChild: 2,
 				fatalChild: 0,
 				errorChild: 0,
 				warningChild: 0,
 				skipChild: 0,
 				infoChild: 0,
 				debugChild: 0,
-				exceptionsChild: 0,
-				grandChildCount: 8,
+				exceptionsChild: 2,
+				grandChildCount: 24,
 				passGrandChild: 8,
-				failGrandChild: 0,
+				failGrandChild: 2,
 				fatalGrandChild: 0,
 				errorGrandChild: 0,
 				warningGrandChild: 0,
-				skipGrandChild: 0,
+				skipGrandChild: 14,
 				infoGrandChild: 0,
 				debugGrandChild: 0,
-				exceptionsGrandChild: 0,
+				exceptionsGrandChild: 16,
 			};
 		</script>
 		<script>
